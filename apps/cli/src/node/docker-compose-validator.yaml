@@ -1,9 +1,11 @@
 services:
     validator:
-        image: cartesi/rollups-node:1.5.1
+        image: cartesi/rollups-node:2.0.0
         depends_on:
-            dapp_deployer:
+            migration:
                 condition: service_completed_successfully
+            anvil:
+                condition: service_healthy
         expose:
             - "10000"
         healthcheck:
@@ -11,6 +13,7 @@ services:
             interval: 10s
             timeout: 1s
             retries: 5
+        user: root
         command:
             - /bin/bash
             - -c
