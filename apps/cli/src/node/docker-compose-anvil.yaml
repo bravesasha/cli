@@ -1,6 +1,6 @@
 services:
     anvil:
-        image: cartesi/sdk:0.12.0-alpha.1
+        image: cartesi/sdk:0.12.0-alpha.2
         command:
             [
                 "devnet",
