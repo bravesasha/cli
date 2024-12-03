@@ -1,7 +1,7 @@
 services:
     graphql_database_creator:
         image: postgres:15-alpine
-        command: ["createdb", "hlgraphql"]
+        command: ["createdb", "graphql"]
         depends_on:
             database:
                 condition: service_healthy
@@ -15,7 +15,7 @@ services:
     graphql:
         image: cartesi/sdk:devel
         environment:
-            POSTGRES_GRAPHQL_DB_URL: postgres://${PGUSER:-postgres}:${PGPASSWORD:-password}@${PGHOST:-database}:${PGPORT:-5432}/hlgraphql?sslmode=disable
+            POSTGRES_GRAPHQL_DB_URL: postgres://${PGUSER:-postgres}:${PGPASSWORD:-password}@${PGHOST:-database}:${PGPORT:-5432}/graphql?sslmode=disable
             POSTGRES_NODE_DB_URL: postgres://${PGUSER:-postgres}:${PGPASSWORD:-password}@${PGHOST:-database}:${PGPORT:-5432}/${PGDATABASE:-postgres}?sslmode=disable
         expose:
             - 8080
