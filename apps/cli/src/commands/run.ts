@@ -35,6 +35,12 @@ export default class Run extends BaseCommand<typeof Run> {
                 "disable local paymaster service to save machine resources",
             summary: "disable paymaster service",
         }),
+        "disable-graphql": Flags.boolean({
+            default: false,
+            description:
+                "disable local graphql service to save machine resources",
+            summary: "disable graphql service",
+        }),
         "epoch-length": Flags.integer({
             description: "length of an epoch (in blocks)",
             default: 720,
@@ -135,6 +141,11 @@ export default class Run extends BaseCommand<typeof Run> {
 
         // proxy
         composeFiles.push("docker-compose-proxy.yaml");
+
+        // graphql
+        if (!flags["disable-graphql"]) {
+            composeFiles.push("docker-compose-graphql.yaml");
+        }
 
         // anvil
         composeFiles.push("docker-compose-anvil.yaml");
