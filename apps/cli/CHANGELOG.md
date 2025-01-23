@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.0-alpha.4
+
+### Minor Changes
+
+-   e79c0bb: add `--enable-espresso` to `cartesi run`
+
 ## 2.0.0-alpha.3
 
 ### Major Changes
