@@ -13,7 +13,7 @@ services:
             PGDATABASE: ${PGDATABASE:-postgres}
 
     graphql:
-        image: cartesi/sdk:devel
+        image: cartesi/sdk:0.12.0-alpha.3
         environment:
             POSTGRES_GRAPHQL_DB_URL: postgres://${PGUSER:-postgres}:${PGPASSWORD:-password}@${PGHOST:-database}:${PGPORT:-5432}/graphql?sslmode=disable
             POSTGRES_NODE_DB_URL: postgres://${PGUSER:-postgres}:${PGPASSWORD:-password}@${PGHOST:-database}:${PGPORT:-5432}/${PGDATABASE:-postgres}?sslmode=disable
